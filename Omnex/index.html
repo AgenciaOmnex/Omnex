@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Omnex — Automatización que libera tu negocio. Respuesta 24/7, recordatorios automáticos, agendamiento sin llamadas y mucho más." />
+  <title>Omnex — Automatización que libera tu negocio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════ PAGE LOADER -->
+<div id="pageLoader" class="page-loader" aria-hidden="true">
+  <div class="loader__bg-grid"></div>
+  <div class="loader__bg-blob"></div>
+  <div class="loader__content">
+    <div class="loader__ring">
+      <svg viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7C3AED"/>
+            <stop offset="50%" stop-color="#C026D3"/>
+            <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <circle cx="55" cy="55" r="48" stroke="rgba(124,58,237,.12)" stroke-width="3"/>
+        <path d="M55 7 A48 48 0 1 1 54.99 7" stroke="url(#ringGrad)" stroke-width="3" stroke-linecap="round" stroke-dasharray="240 62"/>
+      </svg>
+      <div class="loader__ring-logo">
+        <img src="assets/img/Logo_pentagono-removebg-preview.png" alt="Omnex" />
+      </div>
+    </div>
+    <div class="loader__brand">Omnex</div>
+    <div class="loader__tagline">Automatización inteligente</div>
+    <div class="loader__bar-wrap">
+      <div class="loader__bar-fill"></div>
+    </div>
+    <div class="loader__status">Iniciando<span>...</span></div>
+  </div>
+</div>
+
+<!-- Gradiente SVG reutilizable para todos los iconos de marca -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute;overflow:hidden">
+  <defs>
+    <linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#C026D3"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- ═══════════════════════════════════════════════════════════ NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="navbar__inner">
+      <a href="#" class="logo" aria-label="Omnex inicio">
+        <img src="assets/img/Logo_Omnex-removebg-preview.png" alt="Omnex" height="68" style="display:block;" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="#problemas">¿Qué resolvemos?</a></li>
+        <li><a href="#soluciones">Servicios</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav__cta">
+        <a href="#contacto" class="btn btn-primary">Habla con nosotros</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════ HERO -->
+<section class="hero" id="inicio">
+  <div class="hero__blob"></div>
+  <div class="hero__blob2"></div>
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <div class="hero__brand-mark">
+          <img src="assets/img/Logo_pentagono-removebg-preview.png" alt="Omnex" />
+        </div>
+        <div class="hero__eyebrow">
+          <span></span>
+          Automatización inteligente para negocios
+        </div>
+        <h1 class="hero__title">
+          Automatización que<br>
+          <span class="grad">libera tu negocio</span>
+        </h1>
+        <p class="hero__sub">
+          Si pierdes tiempo haciendo algo que una máquina podría hacer, nosotros lo solucionamos. Olvídate de tareas repetitivas y céntrate en lo que importa.
+        </p>
+        <div class="hero__actions">
+          <a href="#contacto" class="btn btn-primary">Habla con nosotros →</a>
+          <a href="#soluciones" class="btn btn-outline">Ver soluciones</a>
+        </div>
+      </div>
+      <div class="hero__visual fade-in">
+        <div class="hero__card-wrap">
+          <div class="hero__card">
+            <!-- Barra de estado móvil -->
+            <div class="hero__card-statusbar">
+              <span>9:41</span>
+              <div class="hero__card-statusbar-icons">
+                <svg width="15" height="11" viewBox="0 0 15 11" fill="white" opacity=".8"><rect x="0" y="3" width="3" height="8" rx="1"/><rect x="4" y="2" width="3" height="9" rx="1"/><rect x="8" y="1" width="3" height="10" rx="1"/><rect x="12" y="0" width="3" height="11" rx="1"/></svg>
+                <svg width="14" height="11" viewBox="0 0 14 11" fill="white" opacity=".8"><path d="M7 1.5C9.8 1.5 12.3 2.8 14 5c-1.7 2.2-4.2 3.5-7 3.5S1.7 7.2 0 5C1.7 2.8 4.2 1.5 7 1.5z" fill-opacity=".3"/><circle cx="7" cy="5" r="2.5"/></svg>
+                <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="white" stroke-opacity=".4"/><rect x="2" y="2" width="17" height="8" rx="2" fill="white" opacity=".85"/><path d="M23 4v4a2 2 0 000-4z" fill="white" opacity=".4"/></svg>
+              </div>
+            </div>
+            <!-- Header estilo WhatsApp -->
+            <div class="hero__card-header">
+              <span class="hero__card-back">‹</span>
+              <div class="hero__avatar">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="9" width="16" height="11" rx="3" fill="white" opacity=".92"/>
+                  <rect x="9" y="5.5" width="6" height="4" rx="1.5" fill="white" opacity=".7"/>
+                  <line x1="12" y1="5.5" x2="12" y2="3.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="12" cy="2.8" r="1.1" fill="white" opacity=".8"/>
+                  <circle cx="9" cy="14" r="1.6" fill="#7C3AED"/>
+                  <circle cx="15" cy="14" r="1.6" fill="#7C3AED"/>
+                  <rect x="9" y="17.5" width="6" height="1.4" rx=".7" fill="#C026D3" opacity=".8"/>
+                </svg>
+              </div>
+              <div>
+                <div class="hero__chat-name">Asistente Virtual</div>
+                <div class="hero__chat-status">en línea</div>
+              </div>
+            </div>
+            <!-- Mensajes -->
+            <div class="hero__messages">
+              <div class="msg__date">Hoy</div>
+              <div class="msg msg--bot">
+                ¡Hola! ¿En qué puedo ayudarte? 👋
+                <div class="msg__meta"><span class="msg__time">9:38</span></div>
+              </div>
+              <div class="msg msg--user">
+                ¿Tenéis cita disponible el jueves?
+                <div class="msg__meta"><span class="msg__time">9:39</span><span class="msg__ticks">✓✓</span></div>
+              </div>
+              <div class="msg msg--bot">
+                Sí, tenemos a las 10:00 y 16:30. ¿Cuál te viene bien? 📅
+                <div class="msg__meta"><span class="msg__time">9:39</span></div>
+              </div>
+              <div class="msg msg--user">
+                Las 16:30, perfecto.
+                <div class="msg__meta"><span class="msg__time">9:40</span><span class="msg__ticks">✓✓</span></div>
+              </div>
+              <div class="msg msg--bot">
+                ¡Reservado! Te envío confirmación ahora mismo. ✅
+                <div class="msg__meta"><span class="msg__time">9:40</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="hero__floating">
+            <span class="icon"><svg viewBox="0 0 24 24" fill="url(#ig)" stroke="none"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+            <div>
+              <div style="font-size:.75rem;color:var(--muted)">Respuesta en</div>
+              <div>menos de 3 segundos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ STATS -->
+<div class="stats">
+  <div class="container">
+    <div class="stats__inner">
+      <div class="stat fade-in">
+        <div class="stat__number">24/7</div>
+        <div class="stat__label">Disponibilidad sin descanso</div>
+      </div>
+      <div class="stat fade-in">
+        <div class="stat__number">-80%</div>
+        <div class="stat__label">Ausencias con recordatorios</div>
+      </div>
+      <div class="stat fade-in">
+        <div class="stat__number">&lt;3 seg</div>
+        <div class="stat__label">Tiempo de respuesta</div>
+      </div>
+      <div class="stat fade-in">
+        <div class="stat__number">100%</div>
+        <div class="stat__label">A medida para tu negocio</div>
+      </div>
+      <!-- Clones para carrusel móvil continuo -->
+      <div class="stat stat--dupe" aria-hidden="true">
+        <div class="stat__number">24/7</div>
+        <div class="stat__label">Disponibilidad sin descanso</div>
+      </div>
+      <div class="stat stat--dupe" aria-hidden="true">
+        <div class="stat__number">-80%</div>
+        <div class="stat__label">Ausencias con recordatorios</div>
+      </div>
+      <div class="stat stat--dupe" aria-hidden="true">
+        <div class="stat__number">&lt;3 seg</div>
+        <div class="stat__label">Tiempo de respuesta</div>
+      </div>
+      <div class="stat stat--dupe" aria-hidden="true">
+        <div class="stat__number">100%</div>
+        <div class="stat__label">A medida para tu negocio</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ PROBLEMS -->
+<section class="section" id="problemas">
+  <div class="container">
+    <div class="section-head fade-in">
+      <div class="badge">¿Te identificas?</div>
+      <h2 class="section-title">Tu negocio pierde dinero cada día.<br>Y tiene solución.</h2>
+      <p class="section-sub">Estos son los problemas más comunes que tienen los negocios como el tuyo. Si alguno te suena, estás en el sitio correcto.</p>
+    </div>
+    <div class="problems__grid">
+      <div class="problem-card fade-in">
+        <div class="problem-card__emoji"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r=".6" fill="url(#ig)" stroke="none"/><circle cx="12" cy="10" r=".6" fill="url(#ig)" stroke="none"/><circle cx="15" cy="10" r=".6" fill="url(#ig)" stroke="none"/></svg></div>
+        <p class="problem-card__quote">"Paso el día contestando las mismas preguntas una y otra vez"</p>
+        <p class="problem-card__sol">Un asistente automático responde por ti 24/7 — tú céntrate en tu trabajo</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-card__emoji"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/></svg></div>
+        <p class="problem-card__quote">"Mis clientes no vienen a las citas y pierdo dinero cada semana"</p>
+        <p class="problem-card__sol">Recordatorio automático por WhatsApp con confirmación. Hasta un 80% menos de ausencias</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-card__emoji"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h5"/><polyline points="17 14 20 17 17 20"/><line x1="14" y1="17" x2="20" y2="17"/></svg></div>
+        <p class="problem-card__quote">"Cuando estoy ocupado, mis clientes se van con la competencia"</p>
+        <p class="problem-card__sol">Respuesta instantánea aunque estés en plena faena, durmiendo o de vacaciones</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-card__emoji"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg></div>
+        <p class="problem-card__quote">"Pierdo 2 o 3 horas al día haciendo tareas que podría hacer una máquina"</p>
+        <p class="problem-card__sol">Automatizamos esas tareas. Tú recuperas tu tiempo y lo dedicas a crecer</p>
+      </div>
+      <!-- Clones para carrusel móvil continuo -->
+      <div class="problem-card problem-card--dupe" aria-hidden="true">
+        <div class="problem-card__emoji"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r=".6" fill="url(#ig)" stroke="none"/><circle cx="12" cy="10" r=".6" fill="url(#ig)" stroke="none"/><circle cx="15" cy="10" r=".6" fill="url(#ig)" stroke="none"/></svg></div>
+        <p class="problem-card__quote">"Paso el día contestando las mismas preguntas una y otra vez"</p>
+        <p class="problem-card__sol">Un asistente automático responde por ti 24/7 — tú céntrate en tu trabajo</p>
+      </div>
+      <div class="problem-card problem-card--dupe" aria-hidden="true">
+        <div class="problem-card__emoji"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/></svg></div>
+        <p class="problem-card__quote">"Mis clientes no vienen a las citas y pierdo dinero cada semana"</p>
+        <p class="problem-card__sol">Recordatorio automático por WhatsApp con confirmación. Hasta un 80% menos de ausencias</p>
+      </div>
+      <div class="problem-card problem-card--dupe" aria-hidden="true">
+        <div class="problem-card__emoji"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h5"/><polyline points="17 14 20 17 17 20"/><line x1="14" y1="17" x2="20" y2="17"/></svg></div>
+        <p class="problem-card__quote">"Cuando estoy ocupado, mis clientes se van con la competencia"</p>
+        <p class="problem-card__sol">Respuesta instantánea aunque estés en plena faena, durmiendo o de vacaciones</p>
+      </div>
+      <div class="problem-card problem-card--dupe" aria-hidden="true">
+        <div class="problem-card__emoji"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg></div>
+        <p class="problem-card__quote">"Pierdo 2 o 3 horas al día haciendo tareas que podría hacer una máquina"</p>
+        <p class="problem-card__sol">Automatizamos esas tareas. Tú recuperas tu tiempo y lo dedicas a crecer</p>
+      </div>
+    </div>
+    <div class="problems__cta fade-in">
+      <p>Si has reconocido alguno de estos problemas, ya sabes que necesitas esto. <strong>La pregunta es: ¿cuánto más tiempo vas a esperar?</strong></p>
+      <a href="#contacto" class="btn btn-primary">Quiero solucionarlo ahora →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ SERVICIOS -->
+<section class="section section--alt" id="soluciones">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <div class="badge">Servicios</div>
+      <h2 class="section-title">Todo lo que ofrecemos</h2>
+      <p class="section-sub">Páginas web, automatizaciones y chatbots con IA. Cada servicio, diseñado a medida para tu negocio.</p>
+    </div>
+    <div class="pricing__grid fade-in">
+      <!-- Páginas web -->
+      <div class="plan">
+        <div class="plan__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="7" x2="22" y2="7"/><circle cx="5" cy="5" r=".6" fill="url(#ig)" stroke="none"/><circle cx="8" cy="5" r=".6" fill="url(#ig)" stroke="none"/><circle cx="11" cy="5" r=".6" fill="url(#ig)" stroke="none"/><line x1="9" y1="21" x2="15" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="plan__name">Páginas web &amp; Landings</div>
+        <div class="plan__ideal">Diseño único con identidad propia, rendimiento real y resultados desde el primer día</div>
+        <ul class="plan__features">
+          <li>Diseño exclusivo adaptado a tu marca y sector</li>
+          <li>Optimizada para convertir visitantes en clientes</li>
+          <li>Perfecta en móvil, tablet y escritorio</li>
+          <li>Velocidad de carga y SEO técnico de base</li>
+          <li>Conectada a tus canales: formulario, WhatsApp y más</li>
+        </ul>
+      </div>
+      <!-- Automatizaciones (destacado) -->
+      <div class="plan plan--featured">
+        <div class="plan__badge">Más solicitado</div>
+        <div class="plan__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+        <div class="plan__name">Automatizaciones</div>
+        <div class="plan__ideal">Conectamos tus herramientas y procesos para que tu negocio funcione solo mientras tú creces</div>
+        <ul class="plan__features">
+          <li>Flujos a medida para cualquier proceso de tu negocio</li>
+          <li>Recordatorios que reducen ausencias drásticamente</li>
+          <li>Presupuestos y documentos generados al instante</li>
+          <li>Conectamos Google, CRM, WhatsApp, Excel y más</li>
+          <li>Más capacidad sin más personal</li>
+        </ul>
+      </div>
+      <!-- Chatbots IA -->
+      <div class="plan">
+        <div class="plan__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r=".6" fill="url(#ig)" stroke="none"/><circle cx="12" cy="10" r=".6" fill="url(#ig)" stroke="none"/><circle cx="15" cy="10" r=".6" fill="url(#ig)" stroke="none"/></svg></div>
+        <div class="plan__name">Chatbots con IA</div>
+        <div class="plan__ideal">Un asistente inteligente que conoce tu negocio, habla por ti y nunca descansa</div>
+        <ul class="plan__features">
+          <li>Entrenado con la voz y el conocimiento de tu marca</li>
+          <li>Activo 24/7 en WhatsApp, tu web e Instagram</li>
+          <li>Capta leads, responde dudas y agenda citas solo</li>
+          <li>Se integra con tus herramientas sin romper tu flujo</li>
+          <li>Mejora con cada conversación</li>
+        </ul>
+      </div>
+    </div>
+    <p class="pricing__note fade-in">
+      Todos los servicios son <strong>100% personalizables y a medida</strong>. Sin precios fijos — cuéntanos tu caso y te preparamos una propuesta sin compromiso.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ HOW IT WORKS -->
+<section class="section" id="como-funciona">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <div class="badge">Proceso</div>
+      <h2 class="section-title">Cómo funciona</h2>
+      <p class="section-sub">Empezar es fácil. En menos de una semana tu negocio ya trabaja en automático.</p>
+    </div>
+    <div class="how__steps">
+      <div class="how__step fade-in">
+        <div class="how__step-num">1</div>
+        <h3 class="how__step-title">Diagnóstico</h3>
+        <p class="how__step-text">Hablamos contigo, entendemos cómo funciona tu negocio y detectamos qué tareas te están robando tiempo.</p>
+      </div>
+      <div class="how__step fade-in">
+        <div class="how__step-num">2</div>
+        <h3 class="how__step-title">Configuración</h3>
+        <p class="how__step-text">Preparamos todo. Tú no tienes que hacer nada técnico. Nosotros nos encargamos de la puesta a punto completa.</p>
+      </div>
+      <div class="how__step fade-in">
+        <div class="how__step-num">3</div>
+        <h3 class="how__step-title">Lanzamiento</h3>
+        <p class="how__step-text">Activamos la automatización y hacemos pruebas contigo. Todo funciona antes de que lo uses con clientes reales.</p>
+      </div>
+      <div class="how__step fade-in">
+        <div class="how__step-num">4</div>
+        <h3 class="how__step-title">Soporte continuo</h3>
+        <p class="how__step-text">Seguimos a tu lado. Si algo cambia en tu negocio, lo adaptamos. Estamos para lo que necesites.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ INDUSTRIES -->
+<section class="section section--alt" id="sectores">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <div class="badge">Para todos los sectores</div>
+      <h2 class="section-title">Si tienes un negocio, esto es para ti</h2>
+      <p class="section-sub">Da igual tu sector. Si tienes clientes, citas o tareas repetitivas, tenemos algo para ti. Y si no ves el tuyo aquí, escríbenos — lo hacemos igual.</p>
+    </div>
+    <div class="industries__grid">
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Peluquerías</div><div class="industry-card__tag">Citas sin llamadas</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Clínicas</div><div class="industry-card__tag">0 ausencias</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Talleres</div><div class="industry-card__tag">Presupuestos al momento</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2v4M9 2v4M7 6v16M5 6h4"/><path d="M17 2v20M15 2v7a2 2 0 0 0 4 0V2"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Restaurantes</div><div class="industry-card__tag">Reservas automáticas</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Inmobiliarias</div><div class="industry-card__tag">Atención 24/7</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Gimnasios</div><div class="industry-card__tag">Retención de socios</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Agricultura</div><div class="industry-card__tag">Gestión simplificada</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4"/><rect x="8" y="6" width="2" height="2"/><rect x="14" y="6" width="2" height="2"/><rect x="8" y="11" width="2" height="2"/><rect x="14" y="11" width="2" height="2"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Hostelería</div><div class="industry-card__tag">Check-in automático</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Estética</div><div class="industry-card__tag">Agenda llena siempre</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h4c2 0 5-1 5-2s3 2 5 2h4"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Asesorías</div><div class="industry-card__tag">Captación automática</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Comercios</div><div class="industry-card__tag">Más ventas, menos trabajo</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21 4 19 2c-2-2-4-2-5.5-.5L10 5 1.8 6.2c-.5.1-.9.5-.7 1.1l1.5 4.2c.1.4.5.7 1 .7L8 12l-2 3H4l-1 1 3 2 2 3 1-1v-2l3-2-.4 3.8c0 .5.3.9.7 1l4.2 1.5c.6.2 1-.2 1.1-.7z"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Turismo</div><div class="industry-card__tag">Reservas sin esfuerzo</div></div></div>
+    </div>
+    <div class="industries__footer fade-in">
+      ¿No ves tu sector? <strong>Da igual — si hay tareas que te roban tiempo, las automatizamos.</strong>
+      <a href="#contacto" style="margin-left:10px;color:#C084FC;font-weight:700;">Hablemos →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ FAQ -->
+<section class="section section--alt" id="faq">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <div class="badge">Preguntas frecuentes</div>
+      <h2 class="section-title">Resolvemos tus dudas</h2>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <button class="faq__q">
+          ¿Cuánto cuesta?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a"><div class="faq__a-inner">No hay precios fijos porque cada negocio es diferente. Depende de lo que necesites automatizar, el volumen de clientes y las herramientas que ya usas. Lo que sí te garantizamos: siempre sabrás el precio antes de empezar, sin sorpresas.</div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">
+          ¿Qué pasa con los datos de mis clientes? ¿Son seguros?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a"><div class="faq__a-inner">Tus datos y los de tus clientes se tratan con total privacidad y cumpliendo la normativa RGPD. No compartimos información con terceros. Los datos viajan cifrados y solo tú tienes acceso a tu panel.</div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">
+          ¿Cuánto tiempo tarda en estar todo funcionando?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a"><div class="faq__a-inner">En la mayoría de casos, menos de una semana. Desde que nos das el OK, configuramos todo, hacemos pruebas y lo lanzamos contigo. Para automatizaciones más complejas, puede ser un poco más, pero siempre te damos un plazo claro antes de empezar.</div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">
+          ¿Necesito conocimientos técnicos para usarlo?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a"><div class="faq__a-inner">Para nada. Tú solo tienes que usar tu negocio como siempre. Nosotros nos encargamos de toda la parte técnica. Si necesitas hacer algún ajuste o tienes una duda, nos escribes y lo resolvemos.</div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">
+          ¿Puedo cancelar si ya no lo necesito?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a"><div class="faq__a-inner">Sí, sin permanencia ni penalizaciones. Si en algún momento decides que no lo necesitas, nos lo dices y lo cancelamos sin complicaciones. Aunque en la práctica, la mayoría de clientes no quieren volver a trabajar sin automatización.</div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">
+          ¿Funciona con las herramientas que ya uso (WhatsApp, Instagram, Google...)?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a"><div class="faq__a-inner">Sí. Trabajamos con WhatsApp Business, Instagram, Google Calendar, Gmail, Excel, y la mayoría de plataformas habituales. Si usas algo diferente, cuéntanoslo y buscamos la mejor forma de integrarlo.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ CONTACT -->
+<section class="section" id="contacto">
+  <div class="container">
+    <div class="contact__inner">
+      <div class="fade-in">
+        <div class="badge">Contacto</div>
+        <h2 class="contact__info-title">¿Hablamos sin compromiso?</h2>
+        <div class="contact__info-text">
+          <p>Cuéntanos qué tareas te están quitando tiempo o frenando tu negocio y te diremos, de forma clara, cómo automatizarlas o mejorarlas.</p>
+          <p><span style="color:#C084FC;">Sin tecnicismos.</span> <span style="color:#C084FC;">Sin rodeos.</span><br>Solo soluciones prácticas que puedes aplicar desde ya.</p>
+          <p>Ya estamos ayudando a negocios a ahorrar tiempo y dinero cada semana.</p>
+          <p style="color:#C084FC;">👉 Te respondemos en menos de 24h.</p>
+        </div>
+      </div>
+      <div class="contact__form fade-in">
+        <form id="contactForm">
+          <div class="form__row">
+            <div class="form__group">
+              <label for="nombre">Nombre *</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+            </div>
+            <div class="form__group">
+              <label for="negocio">Negocio *</label>
+              <input type="text" id="negocio" name="negocio" placeholder="Nombre de tu negocio" required />
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="form__group">
+              <label for="telefono">Teléfono *</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="600 000 000" required />
+            </div>
+            <div class="form__group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+            </div>
+          </div>
+          <div class="form__group">
+            <label for="necesidad">¿Qué necesitas automatizar?</label>
+            <select id="necesidad" name="necesidad">
+              <option value="">Selecciona una opción</option>
+              <option>Atención al cliente 24/7</option>
+              <option>Recordatorios de citas</option>
+              <option>Agendamiento automático</option>
+              <option>Presupuestos automáticos</option>
+              <option>Integración de herramientas</option>
+              <option>Otro / No sé, quiero asesoría</option>
+            </select>
+          </div>
+          <div class="form__group">
+            <label for="mensaje">Cuéntanos más (opcional)</label>
+            <textarea id="mensaje" name="mensaje" placeholder="¿Qué procesos te están quitando más tiempo? ¿Cuántos clientes gestionas al mes?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form__submit">Enviar mensaje →</button>
+          <div class="form__success" id="formSuccess">
+            ✅ Mensaje enviado. Te responderemos lo antes posible.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__logo">
+          <img src="assets/img/Logo_Omnex-removebg-preview.png" alt="Omnex" height="55" style="display:block;" />
+        </div>
+        <p class="footer__desc">Automatización que libera tu negocio. Olvídate de las tareas repetitivas y céntrate en crecer.</p>
+      </div>
+      <div>
+        <div class="footer__col-title">Soluciones</div>
+        <ul class="footer__links">
+          <li><span>Atención 24/7</span></li>
+          <li><span>Recordatorios</span></li>
+          <li><span>Agendamiento</span></li>
+          <li><span>Presupuestos</span></li>
+          <li><span>Integraciones</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Empresa</div>
+        <ul class="footer__links">
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#soluciones">Servicios</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="aviso-legal.html">Aviso legal</a></li>
+          <li><a href="politica-privacidad.html">Privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 <span style="color:#C084FC;font-weight:700;">Omnex</span>. Todos los derechos reservados.</span>
+      <span>
+        <a href="aviso-legal.html">Aviso legal</a>
+        &nbsp;·&nbsp;
+        <a href="politica-privacidad.html">Política de privacidad</a>
+        &nbsp;·&nbsp;
+        <a href="politica-cookies.html">Política de cookies</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════ FLOATING CHAT -->
+<div class="float-chat" id="floatChat">
+  <div class="float-chat__bubble" id="chatBubble">
+    👋 <strong class="bubble__highlight">¿Tienes dudas?</strong><br>¡Hablemos! Estoy aquí para ayudarte.
+    <button class="float-chat__close" id="chatClose" aria-label="Cerrar">×</button>
+  </div>
+  <button class="float-chat__btn" id="chatBtn" aria-label="Abrir chat">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </button>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
