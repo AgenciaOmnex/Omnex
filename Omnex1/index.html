@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Creamos webs, asistentes de respuesta y herramientas que trabajan por ti: captan leads, gestionan citas y responden consultas — solos, 24 h al día." />
+  <title>Omnex | Más clientes. Menos trabajo manual.</title>
+  <link rel="icon" type="image/png" sizes="256x256" href="assets/img/favicon.png" />
+  <link rel="canonical" href="https://omnex.es" />
+  <link rel="preload" as="image" href="assets/img/fondoheader.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=11" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Omnex | Más clientes. Menos trabajo manual." />
+  <meta property="og:description" content="Webs, asistentes virtuales y automatizaciones para negocios locales. Tu negocio trabajando 24h al día, sin que levantes el dedo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://omnex.es" />
+  <meta property="og:locale" content="es_ES" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Omnex",
+    "description": "Agencia especializada en webs profesionales, asistentes de respuesta automática y automatizaciones para negocios locales y pymes.",
+    "url": "https://omnex.es",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Huelva",
+      "addressCountry": "ES"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": "Spanish"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════ PAGE LOADER -->
+<div id="pageLoader" class="page-loader" aria-hidden="true">
+  <div class="loader__bg-grid"></div>
+  <div class="loader__bg-blob"></div>
+  <div class="loader__content">
+    <div class="loader__ring">
+      <svg viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7C3AED"/>
+            <stop offset="50%" stop-color="#C026D3"/>
+            <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <circle cx="55" cy="55" r="48" stroke="rgba(124,58,237,.12)" stroke-width="3"/>
+        <path d="M55 7 A48 48 0 1 1 54.99 7" stroke="url(#ringGrad)" stroke-width="3" stroke-linecap="round" stroke-dasharray="240 62"/>
+      </svg>
+      <div class="loader__ring-logo">
+        <img src="assets/img/Logo_pentagono-removebg-preview.png" alt="Omnex" width="84" height="84" />
+      </div>
+    </div>
+    <div class="loader__brand">Omnex</div>
+    <div class="loader__tagline">Automatización inteligente</div>
+    <div class="loader__bar-wrap">
+      <div class="loader__bar-fill"></div>
+    </div>
+    <div class="loader__status">Iniciando<span>...</span></div>
+  </div>
+</div>
+
+<!-- Gradiente SVG reutilizable para todos los iconos de marca -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute;overflow:hidden">
+  <defs>
+    <linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#C026D3"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- ═══════════════════════════════════════════════════════════ NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="navbar__inner">
+      <a href="#" class="logo" aria-label="Omnex inicio">
+        <img src="assets/img/Logo_Omnex-removebg-preview.png" alt="Omnex" width="170" height="48" style="display:block;height:auto;" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="#problemas">¿Qué resolvemos?</a></li>
+        <li><a href="#Servicios">Servicios</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav__cta">
+        <a href="#contacto" class="btn btn-primary">Habla con nosotros</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════ HERO -->
+<section class="hero" id="inicio">
+  <div class="hero__glow hero__glow--top" aria-hidden="true"></div>
+  <div class="hero__glow hero__glow--bottom" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero__inner">
+
+      <!-- ── Copy ── -->
+      <div class="hero__copy">
+        <div class="hero__eyebrow">
+          <span class="hero__eyebrow-dot"></span>
+          Automatización real para negocios
+        </div>
+        <h1 class="hero__title">
+          Más clientes.<br>
+          <span class="grad">Menos trabajo</span><br>
+          manual.
+        </h1>
+        <p class="hero__sub">
+          Webs, asistentes virtuales y tareas automatizadas que trabajan por ti — solos, 24 h al día.
+        </p>
+        <div class="hero__actions">
+          <a href="#contacto" class="btn btn-primary btn-hero-primary btn-glow" data-event="click_cta_hero">Quiero más clientes →</a>
+        </div>
+        <div class="hero__trust" aria-label="Garantías">
+          <span>Sin permanencias</span>
+          <span>Resultados reales</span>
+          <span>Soporte incluido</span>
+        </div>
+      </div>
+
+      <!-- ── Visual: panel de resultados ── -->
+      <div class="hero__visual">
+        <div class="hero__card-wrap">
+
+          <div class="hero__badge-float hero__badge-float--top">
+            <svg viewBox="0 0 16 16" fill="none" width="12" height="12" aria-hidden="true">
+              <path d="M8 2v12M2 8l6-6 6 6" stroke="#C084FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Menos ausencias de clientes
+          </div>
+
+          <div class="hero__dashboard">
+            <div class="hero__dash-head">
+              <div class="hero__dash-title">
+                <span class="hero__dot-live" aria-hidden="true"></span>
+                Panel de resultados
+              </div>
+              <div class="hero__dash-period">Ejemplo ilustrativo</div>
+            </div>
+
+            <div class="hero__metrics" aria-label="Resultados en tiempo real">
+              <div class="hero__metric">
+                <div class="hero__metric-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="#C084FC" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="hero__metric-body">
+                  <span class="hero__metric-label">Leads captados</span>
+                  <span class="hero__metric-val" data-target="47" aria-label="47 leads captados">0</span>
+                </div>
+                <span class="hero__metric-trend" aria-label="Incremento 12%">↑ 12%</span>
+              </div>
+              <div class="hero__metric">
+                <div class="hero__metric-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="#C084FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div class="hero__metric-body">
+                  <span class="hero__metric-label">Respuestas automáticas</span>
+                  <span class="hero__metric-val" data-target="128" aria-label="128 respuestas automáticas">0</span>
+                </div>
+                <span class="hero__metric-trend" aria-label="Incremento 8%">↑ 8%</span>
+              </div>
+              <div class="hero__metric">
+                <div class="hero__metric-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="#C084FC" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+                </div>
+                <div class="hero__metric-body">
+                  <span class="hero__metric-label">Citas gestionadas</span>
+                  <span class="hero__metric-val" data-target="23" aria-label="23 citas gestionadas">0</span>
+                </div>
+                <span class="hero__metric-trend" aria-label="Incremento 21%">↑ 21%</span>
+              </div>
+            </div>
+
+            <div class="hero__dash-bar">
+              <div class="hero__dash-bar-head">
+                <span>Automatización activa</span>
+                <span class="hero__dash-bar-pct">99.8%</span>
+              </div>
+              <div class="hero__progress" role="progressbar" aria-valuenow="99.8" aria-valuemin="0" aria-valuemax="100">
+                <div class="hero__progress-fill"></div>
+              </div>
+            </div>
+
+            <div class="hero__dash-foot">
+              <span class="hero__dot-live hero__dot-live--sm" aria-hidden="true"></span>
+              Tu negocio trabajando 24/7
+            </div>
+          </div>
+
+          <div class="hero__badge-float hero__badge-float--bottom">
+            <svg viewBox="0 0 24 24" fill="none" width="12" height="12" aria-hidden="true" stroke="#C084FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Responde en menos de 3s
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ STATS -->
+<div class="stats">
+  <div class="container">
+    <div class="stats__inner">
+      <div class="stat fade-in">
+        <div class="stat__number">24/7</div>
+        <div class="stat__label">Siempre activo para tus clientes</div>
+      </div>
+      <div class="stat fade-in">
+        <div class="stat__number">0</div>
+        <div class="stat__label">Avisos de cita que se olvidan</div>
+      </div>
+      <div class="stat fade-in">
+        <div class="stat__number">&lt;3 seg</div>
+        <div class="stat__label">Para responder a un cliente</div>
+      </div>
+      <div class="stat fade-in">
+        <div class="stat__number">100%</div>
+        <div class="stat__label">A medida, sin plantillas</div>
+      </div>
+      <!-- Clones para carrusel móvil continuo -->
+      <div class="stat stat--dupe" aria-hidden="true">
+        <div class="stat__number">24/7</div>
+        <div class="stat__label">Siempre activo para tus clientes</div>
+      </div>
+      <div class="stat stat--dupe" aria-hidden="true">
+        <div class="stat__number">0</div>
+        <div class="stat__label">Avisos de cita que se olvidan</div>
+      </div>
+      <div class="stat stat--dupe" aria-hidden="true">
+        <div class="stat__number">&lt;3 seg</div>
+        <div class="stat__label">Para responder a un cliente</div>
+      </div>
+      <div class="stat stat--dupe" aria-hidden="true">
+        <div class="stat__number">100%</div>
+        <div class="stat__label">A medida, sin plantillas</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ PROBLEMS -->
+<section class="section" id="problemas">
+  <div class="container">
+    <div class="section-head fade-in">
+      <div class="badge">¿Te suena?</div>
+      <h2 class="section-title">Estás perdiendo clientes.<br>Y no siempre te das cuenta.</h2>
+      <p class="section-sub">No por mal servicio — sino porque no puedes atenderlo todo. Estos problemas tienen solución, y es más sencilla de lo que crees.</p>
+    </div>
+    <div class="problems__grid">
+      <div class="problem-card fade-in">
+        <div class="problem-card__emoji"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r=".6" fill="url(#ig)" stroke="none"/><circle cx="12" cy="10" r=".6" fill="url(#ig)" stroke="none"/><circle cx="15" cy="10" r=".6" fill="url(#ig)" stroke="none"/></svg></div>
+        <p class="problem-card__quote">"Paso el día contestando las mismas preguntas una y otra vez"</p>
+        <p class="problem-card__sol">Configuramos un asistente que responde solo. Las preguntas frecuentes, resueltas sin que levantes el dedo.</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-card__emoji"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/></svg></div>
+        <p class="problem-card__quote">"Mis clientes no vienen a las citas y pierdo dinero cada semana"</p>
+        <p class="problem-card__sol">Un aviso automático por WhatsApp lo resuelve. Con los recordatorios automáticos, las ausencias se reducen de forma notable.</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-card__emoji"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h5"/><polyline points="17 14 20 17 17 20"/><line x1="14" y1="17" x2="20" y2="17"/></svg></div>
+        <p class="problem-card__quote">"Cuando estoy ocupado, mis clientes se van con la competencia"</p>
+        <p class="problem-card__sol">Tu asistente responde en segundos — aunque estés trabajando, durmiendo o de vacaciones.</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-card__emoji"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg></div>
+        <p class="problem-card__quote">"Pierdo 2 o 3 horas al día haciendo tareas que podría hacer una máquina"</p>
+        <p class="problem-card__sol">Esas tareas las hacemos nosotros. Tú recuperas 2 horas al día. Sin hacer nada distinto.</p>
+      </div>
+      <!-- Clones para carrusel móvil continuo -->
+      <div class="problem-card problem-card--dupe" aria-hidden="true">
+        <div class="problem-card__emoji"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r=".6" fill="url(#ig)" stroke="none"/><circle cx="12" cy="10" r=".6" fill="url(#ig)" stroke="none"/><circle cx="15" cy="10" r=".6" fill="url(#ig)" stroke="none"/></svg></div>
+        <p class="problem-card__quote">"Paso el día contestando las mismas preguntas una y otra vez"</p>
+        <p class="problem-card__sol">Configuramos un asistente que responde solo. Las preguntas frecuentes, resueltas sin que levantes el dedo.</p>
+      </div>
+      <div class="problem-card problem-card--dupe" aria-hidden="true">
+        <div class="problem-card__emoji"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/></svg></div>
+        <p class="problem-card__quote">"Mis clientes no vienen a las citas y pierdo dinero cada semana"</p>
+        <p class="problem-card__sol">Un aviso automático por WhatsApp lo resuelve. Con los recordatorios automáticos, las ausencias se reducen de forma notable.</p>
+      </div>
+      <div class="problem-card problem-card--dupe" aria-hidden="true">
+        <div class="problem-card__emoji"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h5"/><polyline points="17 14 20 17 17 20"/><line x1="14" y1="17" x2="20" y2="17"/></svg></div>
+        <p class="problem-card__quote">"Cuando estoy ocupado, mis clientes se van con la competencia"</p>
+        <p class="problem-card__sol">Tu asistente responde en segundos — aunque estés trabajando, durmiendo o de vacaciones.</p>
+      </div>
+      <div class="problem-card problem-card--dupe" aria-hidden="true">
+        <div class="problem-card__emoji"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg></div>
+        <p class="problem-card__quote">"Pierdo 2 o 3 horas al día haciendo tareas que podría hacer una máquina"</p>
+        <p class="problem-card__sol">Esas tareas las hacemos nosotros. Tú recuperas 2 horas al día. Sin hacer nada distinto.</p>
+      </div>
+    </div>
+    <div class="problems__cta fade-in">
+      <p><strong>Cada semana sin esto es tiempo y clientes que no vuelven.</strong> La pregunta es: ¿cuándo lo solucionas?</p>
+      <a href="#contacto" class="btn btn-primary">Quiero una solución →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ POR QUÉ OMNEX (reubicado antes que servicios) -->
+<section class="section section--alt" id="nosotros">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <div class="badge">Por qué Omnex</div>
+      <h2 class="section-title">Sin intermediarios.<br>Sin plantillas. Sin rodeos.</h2>
+      <p class="section-sub">Hablas directamente con quien hace el trabajo. Cada solución se diseña para tu negocio — no para el del vecino.</p>
+    </div>
+    <div class="trust__grid">
+      <div class="trust-card fade-in">
+        <div class="trust-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="trust-card__title">Trato directo</h3>
+        <p class="trust-card__text">Hablas siempre con quien hace el trabajo. Sin comerciales. Sin que alguien te prometa lo que otro tiene que cumplir.</p>
+      </div>
+      <div class="trust-card fade-in">
+        <div class="trust-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h3 class="trust-card__title">A tu medida</h3>
+        <p class="trust-card__text">Nada de plantillas. Analizamos cómo trabajas y construimos lo que necesitas — no lo que le vendemos a todo el mundo.</p>
+      </div>
+      <div class="trust-card fade-in">
+        <div class="trust-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3 class="trust-card__title">Resultados primero</h3>
+        <p class="trust-card__text">Si lo que propones no tiene sentido para tu negocio, te lo decimos. No construimos por construir ni vendemos lo que no necesitas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ TRANSFORMACIÓN — Antes vs Después -->
+<section class="section" id="transformacion">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <div class="badge">La diferencia</div>
+      <h2 class="section-title">Lo que cambia cuando tu negocio<br>empieza a trabajar solo</h2>
+      <p class="section-sub">No es tecnología por tecnología. Es tiempo recuperado, clientes que no se pierden y trabajo que se hace solo — sin que toques nada.</p>
+    </div>
+
+    <div class="transform__wrap fade-in">
+
+      <!-- ANTES -->
+      <div class="transform__col transform__col--before">
+        <div class="transform__head">
+          <span class="transform__badge transform__badge--before">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="13" height="13" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Sin automatizar
+          </span>
+        </div>
+        <ul class="transform__list transform__list--before">
+          <li>Respondes a cada cliente a mano, uno por uno</li>
+          <li>Hay citas que se olvidan — el cliente no aparece</li>
+          <li>Llegan leads de la web que nadie atiende a tiempo</li>
+          <li>Publicas en redes cuando tienes un momento libre</li>
+          <li>Cada presupuesto te lleva 30 minutos prepararlo</li>
+          <li>Fuera de horario, tu negocio deja de existir</li>
+          <li>Las tareas repetitivas consumen tu tiempo y energía</li>
+        </ul>
+      </div>
+
+      <!-- FLECHA CENTRAL -->
+      <div class="transform__arrow" aria-hidden="true">
+        <svg class="transform__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+
+      <!-- DESPUÉS -->
+      <div class="transform__col transform__col--after">
+        <div class="transform__head">
+          <span class="transform__badge transform__badge--after">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="13" height="13" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Con Omnex
+          </span>
+        </div>
+        <ul class="transform__list transform__list--after">
+          <li>Asistente que responde en segundos, las 24 h del día</li>
+          <li>Avisos automáticos que reducen ausencias y olvidos</li>
+          <li>Cada lead recibe respuesta al instante, siempre</li>
+          <li>Redes sociales gestionadas por el equipo — sin ocupar tu agenda</li>
+          <li>Presupuestos automáticos listos en segundos</li>
+          <li>Tu negocio sigue trabajando mientras duermes</li>
+          <li>Solo te ocupas de lo que no puede hacer una máquina</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Métricas de transformación -->
+    <div class="transform__stats fade-in">
+      <div class="transform__stat">
+        <span class="transform__stat-num">Más tiempo</span>
+        <span class="transform__stat-label">libre cada día</span>
+      </div>
+      <div class="transform__stat-sep" aria-hidden="true"></div>
+      <div class="transform__stat">
+        <span class="transform__stat-num">Menos</span>
+        <span class="transform__stat-label">citas que se olvidan</span>
+      </div>
+      <div class="transform__stat-sep" aria-hidden="true"></div>
+      <div class="transform__stat">
+        <span class="transform__stat-num">&lt;3s</span>
+        <span class="transform__stat-label">respuesta a cada lead</span>
+      </div>
+      <div class="transform__stat-sep" aria-hidden="true"></div>
+      <div class="transform__stat">
+        <span class="transform__stat-num">24/7</span>
+        <span class="transform__stat-label">activo sin esfuerzo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════ SERVICIOS -->
+<section class="section" id="Servicios">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <div class="badge">Servicios</div>
+      <h2 class="section-title">Cuatro formas de hacer que<br>tu negocio trabaje mejor</h2>
+      <p class="section-sub">Webs que convierten, automatizaciones que ahorran tiempo, asistentes que responden por ti y redes sociales gestionadas con criterio profesional.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- CARD 1: Páginas web & Landings -->
+      <div class="service-card fade-in">
+        <div class="service-card__blur service-card__blur--1" aria-hidden="true"></div>
+        <div class="service-card__blur service-card__blur--2" aria-hidden="true"></div>
+        <div class="service-card__content">
+          <div class="service-tag">
+            <span class="service-tag__dot" aria-hidden="true"></span>
+            Web profesional + captación
+          </div>
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="26" height="26">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M8 21h8M12 17v4"/>
+              <path d="M6 8h4M6 11.5h3M13 8h5M14 11.5h4"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Páginas web &amp; Landings</h3>
+          <p class="service-card__desc">No una web bonita. Una herramienta diseñada para que quien llegue, entienda tu valor y contacte.</p>
+          <ul class="service-benefits" aria-label="Qué incluye">
+            <li>Diseño único adaptado a tu negocio</li>
+            <li>Estructura enfocada en captar leads</li>
+            <li>Optimizada para móvil, tablet y ordenador</li>
+            <li>Formularios, WhatsApp y chatbot integrados</li>
+            <li>Preparada para transmitir confianza desde el primer segundo</li>
+          </ul>
+          <a href="#contacto" class="service-cta">Solicitar propuesta →</a>
+        </div>
+      </div>
+
+      <!-- CARD 2: Automatizaciones -->
+      <div class="service-card fade-in">
+        <div class="service-card__blur service-card__blur--1" aria-hidden="true"></div>
+        <div class="service-card__blur service-card__blur--2" aria-hidden="true"></div>
+        <div class="service-card__content">
+          <div class="service-tag">
+            <span class="service-tag__dot" aria-hidden="true"></span>
+            Procesos automáticos + ahorro de tiempo
+          </div>
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="26" height="26">
+              <rect x="6" y="6" width="12" height="12" rx="1"/>
+              <path d="M9 1v5M12 1v5M15 1v5M9 18v5M12 18v5M15 18v5M1 9h5M1 12h5M1 15h5M18 9h5M18 12h5M18 15h5"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Automatizaciones</h3>
+          <p class="service-card__desc">Convertimos tareas repetitivas en procesos automáticos para que tu equipo gane tiempo y control.</p>
+          <ul class="service-benefits" aria-label="Qué incluye">
+            <li>Recordatorios de citas</li>
+            <li>Gestión de solicitudes y formularios</li>
+            <li>Presupuestos y documentos automáticos</li>
+            <li>Conexión entre herramientas</li>
+            <li>Menos errores y menos trabajo manual</li>
+          </ul>
+          <a href="#contacto" class="service-cta">Solicitar propuesta →</a>
+        </div>
+      </div>
+
+      <!-- CARD 3: Asistente virtual -->
+      <div class="service-card fade-in">
+        <div class="service-card__blur service-card__blur--1" aria-hidden="true"></div>
+        <div class="service-card__blur service-card__blur--2" aria-hidden="true"></div>
+        <div class="service-card__content">
+          <div class="service-tag">
+            <span class="service-tag__dot" aria-hidden="true"></span>
+            Chatbot + atención 24/7
+          </div>
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="26" height="26">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              <circle cx="9" cy="10" r=".7" fill="url(#ig)" stroke="none"/>
+              <circle cx="12" cy="10" r=".7" fill="url(#ig)" stroke="none"/>
+              <circle cx="15" cy="10" r=".7" fill="url(#ig)" stroke="none"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Asistente virtual</h3>
+          <p class="service-card__desc">Un chatbot conectado a tu web, WhatsApp o Instagram para responder dudas, captar datos y atender clientes 24/7.</p>
+          <ul class="service-benefits" aria-label="Qué incluye">
+            <li>Respuestas inmediatas</li>
+            <li>Resolución de preguntas frecuentes</li>
+            <li>Captación de leads</li>
+            <li>Derivación al equipo cuando haga falta</li>
+            <li>Atención disponible fuera de horario</li>
+          </ul>
+          <a href="#contacto" class="service-cta">Solicitar propuesta →</a>
+        </div>
+      </div>
+
+      <!-- CARD 4: Gestión de redes sociales -->
+      <div class="service-card fade-in">
+        <div class="service-card__blur service-card__blur--1" aria-hidden="true"></div>
+        <div class="service-card__blur service-card__blur--2" aria-hidden="true"></div>
+        <div class="service-card__content">
+          <div class="service-tag">
+            <span class="service-tag__dot" aria-hidden="true"></span>
+            Redes sociales + contenido mensual
+          </div>
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="26" height="26">
+              <circle cx="18" cy="5" r="3"/>
+              <circle cx="6" cy="12" r="3"/>
+              <circle cx="18" cy="19" r="3"/>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Gestión de redes sociales</h3>
+          <p class="service-card__desc">Planificamos, diseñamos y gestionamos contenido profesional para que tu negocio mantenga una presencia constante y cuidada.</p>
+          <ul class="service-benefits" aria-label="Qué incluye">
+            <li>Publicaciones profesionales</li>
+            <li>Adaptación para Instagram, Facebook y LinkedIn</li>
+            <li>Calendario de contenido</li>
+            <li>Diseño coherente con tu marca</li>
+            <li>Apoyo con sistemas para organizar mejor el proceso</li>
+          </ul>
+          <a href="#contacto" class="service-cta">Solicitar propuesta →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="services__footer fade-in">
+      <a href="#contacto" class="btn btn-primary btn-glow">Quiero una propuesta →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ HOW IT WORKS -->
+<section class="section" id="como-funciona">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <div class="badge">El proceso</div>
+      <h2 class="section-title">De la llamada al resultado:<br>cuatro pasos.</h2>
+      <p class="section-sub">Sin tecnicismos. Sin esperas. Tú no tienes que hacer nada técnico.</p>
+    </div>
+    <div class="how__steps">
+      <div class="how__step fade-in">
+        <div class="how__step-num">1</div>
+        <h3 class="how__step-title">Llamada inicial</h3>
+        <p class="how__step-text">Hablamos 30 minutos. Entendemos tu negocio y detectamos qué tareas te están costando tiempo y clientes.</p>
+      </div>
+      <div class="how__step fade-in">
+        <div class="how__step-num">2</div>
+        <h3 class="how__step-title">Diseño y configuración</h3>
+        <p class="how__step-text">Lo preparamos todo. Tú no tocas nada técnico — nosotros configuramos, ajustamos y adaptamos cada detalle.</p>
+      </div>
+      <div class="how__step fade-in">
+        <div class="how__step-num">3</div>
+        <h3 class="how__step-title">Pruebas y lanzamiento</h3>
+        <p class="how__step-text">Lo probamos juntos antes de usarlo con clientes reales. No arrancamos hasta que funciona bien.</p>
+      </div>
+      <div class="how__step fade-in">
+        <div class="how__step-num">4</div>
+        <h3 class="how__step-title">Acompañamiento incluido</h3>
+        <p class="how__step-text">No desaparecemos tras el lanzamiento. Si tienes una duda, respondemos. Si tu negocio evoluciona y necesita ajustes, los gestionamos juntos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ INDUSTRIES (reducido) -->
+<section class="section section--alt section--compact" id="sectores">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <div class="badge">Sectores</div>
+      <h2 class="section-title">Funciona en cualquier negocio local</h2>
+    </div>
+    <div class="industries__grid">
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Peluquerías</div><div class="industry-card__tag">Citas sin llamadas</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="20" rx="1"/><rect x="2" y="9" width="20" height="6" rx="1"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Clínicas</div><div class="industry-card__tag">0 ausencias</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Talleres</div><div class="industry-card__tag">Presupuestos al momento</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2v4M9 2v4M7 6v16M5 6h4"/><path d="M17 2v20M15 2v7a2 2 0 0 0 4 0V2"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Restaurantes</div><div class="industry-card__tag">Reservas automáticas</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><rect x="10" y="14" width="4" height="8" rx="2"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Estética</div><div class="industry-card__tag">Agenda llena siempre</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Comercios</div><div class="industry-card__tag">Más ventas, menos trabajo</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Inmobiliarias</div><div class="industry-card__tag">Leads al instante</div></div></div>
+      <div class="industry-card fade-in"><div class="industry-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="industry-card__text"><div class="industry-card__name">Academias</div><div class="industry-card__tag">Matrículas automáticas</div></div></div>
+    </div>
+    <div class="industries__footer fade-in">
+      ¿Tu sector no aparece? Si tienes tareas repetitivas que te quitan tiempo, las automatizamos.
+      <a href="#contacto" style="margin-left:10px;color:#C084FC;font-weight:700;">Cuéntanoslo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <div class="badge">Preguntas frecuentes</div>
+      <h2 class="section-title">Lo que preguntan antes de empezar</h2>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <button class="faq__q">
+          ¿Cuánto cuesta?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a"><div class="faq__a-inner">Depende del negocio y de lo que quieras mejorar. No hay tarifas estándar porque cada caso es diferente. Lo que sí garantizamos: precio claro antes de empezar, sin letra pequeña ni sorpresas.</div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">
+          ¿Qué pasa con los datos de mis clientes? ¿Son seguros?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a"><div class="faq__a-inner">Trabajamos con herramientas seguras y configuramos cada sistema siguiendo buenas prácticas de privacidad y RGPD. Antes de lanzar cualquier proyecto, te explicamos qué datos se usan, dónde se almacenan y quién tiene acceso. Diseñamos cada solución teniendo en cuenta la privacidad desde el principio.</div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">
+          ¿Cuánto tarda en funcionar?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a"><div class="faq__a-inner">En la mayoría de casos, menos de una semana. Desde que nos das el OK, configuramos todo, hacemos pruebas y lo lanzamos juntos. Si es algo más complejo, te damos un plazo exacto antes de empezar.</div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">
+          ¿Necesito saber de tecnología para usarlo?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a"><div class="faq__a-inner">No hace falta saber nada. Tú sigues usando tu negocio como siempre. Nosotros nos encargamos de todo lo técnico. Si tienes alguna duda, nos escribes y lo resolvemos.</div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">
+          ¿Puedo cancelar cuando quiera?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a"><div class="faq__a-inner">Sí, sin permanencia ni penalizaciones. Nos lo dices y cancelamos, sin complicaciones. Aunque en la práctica, casi ningún cliente quiere volver a trabajar sin esto.</div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">
+          ¿Funciona con WhatsApp, Instagram y Google?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a"><div class="faq__a-inner">Sí. Conectamos WhatsApp Business, Instagram, Google Calendar, Gmail y la mayoría de herramientas habituales. Si usas algo diferente, cuéntanoslo — casi seguro podemos integrarlo.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ CONTACT -->
+<section class="section section--alt" id="contacto">
+  <div class="container">
+    <div class="contact__inner">
+      <div class="fade-in">
+        <div class="badge">Hablemos</div>
+        <h2 class="contact__info-title">Cuéntanos qué te frena.</h2>
+        <div class="contact__info-text">
+          <p>Dinos qué tareas te quitan tiempo o qué clientes estás perdiendo. Te decimos, sin rodeos, si podemos ayudarte y cómo.</p>
+          <p>Ya trabajamos con negocios locales que han recuperado horas cada semana y atienden más clientes sin esfuerzo extra.</p>
+          <p style="color:#C084FC;font-weight:600;">Respondemos en menos de 24 h.</p>
+        </div>
+      </div>
+      <div class="contact__form fade-in">
+        <h2 class="contact__form-title">Pídenos una propuesta</h2>
+        <p class="contact__form-sub" id="formSubtext">Rellena el formulario. En 24 h tienes respuesta con ideas concretas para tu caso.</p>
+        <form id="contactForm" aria-describedby="formSubtext">
+          <div class="form__row">
+            <div class="form__group">
+              <label for="nombre">Nombre *</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+            </div>
+            <div class="form__group">
+              <label for="negocio">Negocio *</label>
+              <input type="text" id="negocio" name="negocio" placeholder="Nombre de tu negocio" required />
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="form__group">
+              <label for="telefono">Teléfono *</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="600 000 000" required />
+            </div>
+            <div class="form__group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+            </div>
+          </div>
+          <div class="form__group">
+            <label for="necesidad">¿Qué quieres mejorar?</label>
+            <select id="necesidad" name="necesidad">
+              <option value="">Selecciona una opción</option>
+              <option>Atención al cliente 24/7</option>
+              <option>Recordatorios de citas</option>
+              <option>Citas y reservas automáticas</option>
+              <option>Presupuestos automáticos</option>
+              <option>Conectar mis herramientas</option>
+              <option>Gestión de redes sociales</option>
+              <option>Todavía no lo sé — quiero que me orientéis</option>
+            </select>
+          </div>
+          <div class="form__group">
+            <label for="mensaje">Cuéntanos más (opcional)</label>
+            <textarea id="mensaje" name="mensaje" placeholder="¿Qué tarea te quita más tiempo? ¿Cuántos clientes gestionas? Cuanto más nos cuentes, mejor te orientamos."></textarea>
+          </div>
+          <div class="form__group form__group--consent">
+            <label class="form__consent-label">
+              <input type="checkbox" name="consentimiento" id="consentimiento" required />
+              <span>He leído y acepto la <a href="politica-privacidad.html">política de privacidad</a>. Consiento que Omnex utilice mis datos para responder a mi solicitud y enviarme información sobre sus servicios. *</span>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary form__submit">Quiero una propuesta →</button>
+          <p class="form__disclaimer">Sin compromiso. Revisamos tu caso y te respondemos con claridad.</p>
+          <div class="form__success" id="formSuccess">
+            ✅ Recibido. Te respondemos antes de 24 h.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__logo">
+          <img src="assets/img/Logo_Omnex-removebg-preview.png" alt="Omnex" width="140" height="40" loading="lazy" style="display:block;height:auto;" />
+        </div>
+        <p class="footer__desc">Webs, asistentes y tareas automatizadas. Tu negocio sigue funcionando aunque no estés.</p>
+      </div>
+      <div>
+        <div class="footer__col-title">Servicios</div>
+        <ul class="footer__links">
+          <li><span>Webs profesionales</span></li>
+          <li><span>Asistente virtual</span></li>
+          <li><span>Recordatorios de citas</span></li>
+          <li><span>Reservas automáticas</span></li>
+          <li><span>Presupuestos automáticos</span></li>
+          <li><span>Gestión de redes sociales</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Empresa</div>
+        <ul class="footer__links">
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="aviso-legal.html">Aviso legal</a></li>
+          <li><a href="politica-privacidad.html">Privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 <span style="color:#C084FC;font-weight:700;">Omnex</span>. Todos los derechos reservados.</span>
+      <span>
+        <a href="aviso-legal.html">Aviso legal</a>
+        &nbsp;·&nbsp;
+        <a href="politica-privacidad.html">Política de privacidad</a>
+        &nbsp;·&nbsp;
+        <a href="politica-cookies.html">Política de cookies</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     OMNI — Asistente Virtual de Omnex
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<div id="omni-chat-root"></div>
+<script>
+(function () {
+  'use strict';
+
+  /* ── CONFIGURACIÓN ──────────────────────────────────────────── */
+  const CFG = {
+    webhookUrl: 'https://agencia-n8n.oyvucf.easypanel.host/webhook/fb7d9697-c7f2-459d-b62d-a07557e6f4e9',
+    token:      'omnex-chat-2025',
+    botName:    'Omni',
+    maxHistory: 6,
+  };
+
+  /* ── ESTADO ─────────────────────────────────────────────────── */
+  let isOpen = false;
+  let conversationId = 'conv_' + Date.now();
+  let history = [];
+
+  /* ── CSS ────────────────────────────────────────────────────── */
+  const style = document.createElement('style');
+  style.textContent = `
+    /* ── Bubble ─────────────────────────────────────── */
+    #omni-bubble {
+      position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: linear-gradient(135deg, #7C3AED, #C026D3);
+      border: none; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(124,58,237,.55);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transform: translateY(16px) scale(.8);
+      pointer-events: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    #omni-bubble.omni-bubble--in {
+      animation: omniBubbleReveal .6s cubic-bezier(.34,1.56,.64,1) forwards;
+      pointer-events: all;
+    }
+    #omni-bubble.omni-bubble--ready {
+      opacity: 1; transform: none; pointer-events: all;
+    }
+    @keyframes omniBubbleReveal {
+      to { opacity: 1; transform: none; }
+    }
+    #omni-bubble:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(192,38,211,.7), 0 0 0 8px rgba(192,38,211,.1);
+    }
+    #omni-bubble svg { width: 24px; height: 24px; fill: #fff; }
+    #omni-bubble::before {
+      content: '';
+      position: absolute; inset: 0; border-radius: 50%;
+      background: rgba(192,38,211,.45);
+      z-index: -1; pointer-events: none;
+      animation: omniRingPulse 2.4s ease-out 0s 4;
+      animation-play-state: paused;
+    }
+    #omni-bubble.omni-bubble--ready::before {
+      animation-play-state: running;
+    }
+    @keyframes omniRingPulse {
+      0%   { transform: scale(1);   opacity: .55; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+
+    /* ── Ventana ─────────────────────────────────────── */
+    #omni-window {
+      position: fixed; bottom: 96px; right: 24px; z-index: 9998;
+      width: 370px; max-height: 560px;
+      background: #16161F;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      box-shadow: 0 24px 64px rgba(0,0,0,.65),
+                  0 0 0 1px rgba(124,58,237,.2),
+                  0 0 48px rgba(124,58,237,.08);
+      display: flex; flex-direction: column;
+      font-family: 'Inter', system-ui, sans-serif; font-size: 14px;
+      overflow: hidden;
+      transition: opacity .28s cubic-bezier(.22,1,.36,1),
+                  transform .28s cubic-bezier(.22,1,.36,1);
+      opacity: 0; transform: translateY(16px) scale(.95); pointer-events: none;
+    }
+    #omni-window.open { opacity: 1; transform: none; pointer-events: all; }
+
+    /* ── Header ──────────────────────────────────────── */
+    #omni-header {
+      background: linear-gradient(135deg, #7C3AED 0%, #C026D3 100%);
+      padding: 15px 18px;
+      display: flex; align-items: center; gap: 12px;
+      position: relative; overflow: hidden; flex-shrink: 0;
+    }
+    #omni-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,.12) 1px, transparent 1px);
+      background-size: 18px 18px;
+      pointer-events: none;
+    }
+    #omni-header .avatar {
+      position: relative; z-index: 1; flex-shrink: 0;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,.15);
+      border: 2px solid rgba(255,255,255,.35);
+      display: flex; align-items: center; justify-content: center;
+    }
+    #omni-header .avatar::after {
+      content: '';
+      position: absolute; bottom: 0; right: -1px;
+      width: 11px; height: 11px; border-radius: 50%;
+      background: #4ade80;
+      border: 2px solid #8B2BE2;
+    }
+    #omni-header .info { position: relative; z-index: 1; }
+    #omni-header .info .name  { font-weight: 700; font-size: 15px; color: #fff; letter-spacing: -.01em; }
+    #omni-header .info .status { font-size: 11px; color: rgba(255,255,255,.75); margin-top: 1px; }
+    #omni-close {
+      margin-left: auto; position: relative; z-index: 1; flex-shrink: 0;
+      background: rgba(255,255,255,.15); border: none; color: #fff; cursor: pointer;
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; line-height: 1;
+      transition: background .15s;
+    }
+    #omni-close:hover { background: rgba(255,255,255,.3); }
+
+    /* ── Mensajes ────────────────────────────────────── */
+    #omni-messages {
+      flex: 1; overflow-y: auto; padding: 18px 16px;
+      display: flex; flex-direction: column; gap: 10px;
+      scroll-behavior: smooth;
+      background-image: radial-gradient(rgba(124,58,237,.1) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    #omni-messages::-webkit-scrollbar { width: 4px; }
+    #omni-messages::-webkit-scrollbar-track { background: transparent; }
+    #omni-messages::-webkit-scrollbar-thumb { background: rgba(124,58,237,.4); border-radius: 4px; }
+    #omni-messages::-webkit-scrollbar-thumb:hover { background: rgba(192,38,211,.6); }
+
+    .omni-msg {
+      max-width: 84%; padding: 10px 14px; border-radius: 14px;
+      line-height: 1.55; word-break: break-word; font-size: 13.5px;
+      animation: omniMsgIn .22s cubic-bezier(.22,1,.36,1) both;
+    }
+    @keyframes omniMsgIn {
+      from { opacity: 0; transform: translateY(8px) scale(.97); }
+      to   { opacity: 1; transform: none; }
+    }
+    .omni-msg.bot {
+      background: #1E1E2E;
+      border: 1px solid rgba(124,58,237,.25);
+      color: #EEEEFF; align-self: flex-start;
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.35);
+    }
+    .omni-msg.user {
+      background: linear-gradient(135deg, #7C3AED, #C026D3);
+      color: #fff; align-self: flex-end;
+      border-bottom-right-radius: 4px;
+      box-shadow: 0 2px 12px rgba(124,58,237,.4);
+    }
+    .omni-msg strong { font-weight: 700; }
+
+    /* ── Typing dots ─────────────────────────────────── */
+    .omni-dots { display: flex; gap: 5px; align-items: center; height: 18px; }
+    .omni-dots span {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: linear-gradient(135deg, #7C3AED, #C026D3);
+      animation: omniDot .9s ease-in-out infinite;
+    }
+    .omni-dots span:nth-child(2) { animation-delay: .15s; }
+    .omni-dots span:nth-child(3) { animation-delay: .3s; }
+    @keyframes omniDot {
+      0%, 60%, 100% { transform: translateY(0); opacity: .45; }
+      30%            { transform: translateY(-6px); opacity: 1; }
+    }
+
+    /* ── Sugerencias ─────────────────────────────────── */
+    .omni-suggestions {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      max-width: 84%; align-self: flex-start; margin-top: -3px;
+    }
+    .omni-suggestion {
+      background: rgba(44,26,78,.8);
+      color: #C084FC;
+      border: 1px solid rgba(124,58,237,.38);
+      border-radius: 999px; padding: 5px 13px;
+      font-size: 12px; cursor: pointer; white-space: nowrap;
+      font-family: inherit;
+      transition: background .15s, border-color .15s, transform .1s;
+      animation: omniMsgIn .22s cubic-bezier(.22,1,.36,1) both;
+    }
+    .omni-suggestion:hover {
+      background: rgba(124,58,237,.28);
+      border-color: rgba(192,38,211,.6);
+      transform: translateY(-1px);
+    }
+
+    /* ── Input ───────────────────────────────────────── */
+    #omni-input-area {
+      padding: 12px 14px; background: #16161F;
+      border-top: 1px solid rgba(255,255,255,.06);
+      display: flex; gap: 8px; align-items: flex-end;
+      position: relative; flex-shrink: 0;
+    }
+    #omni-input-area::before {
+      content: '';
+      position: absolute; top: 0; left: 20px; right: 20px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(124,58,237,.5), rgba(192,38,211,.5), transparent);
+    }
+    #omni-input {
+      flex: 1;
+      background: #0F0F17;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px; padding: 9px 13px;
+      font-size: 13.5px; resize: none; max-height: 100px;
+      outline: none; line-height: 1.45;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #EEEEFF;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    #omni-input::placeholder { color: #4B5563; }
+    #omni-input:focus {
+      border-color: rgba(124,58,237,.65);
+      box-shadow: 0 0 0 3px rgba(124,58,237,.15);
+    }
+    #omni-send {
+      width: 38px; height: 38px; flex-shrink: 0;
+      background: linear-gradient(135deg, #7C3AED, #C026D3);
+      border: none; border-radius: 10px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: filter .15s, transform .15s;
+      box-shadow: 0 2px 10px rgba(124,58,237,.45);
+    }
+    #omni-send:hover { filter: brightness(1.12); transform: scale(1.06); }
+    #omni-send svg { width: 17px; height: 17px; fill: #fff; }
+    #omni-send:disabled {
+      background: #2D2D3A; box-shadow: none;
+      cursor: not-allowed; transform: none; filter: none;
+    }
+
+    /* ── Responsive ──────────────────────────────────── */
+    @media (max-width: 420px) {
+      #omni-window { width: calc(100vw - 16px); right: 8px; bottom: 82px; }
+      #omni-bubble { bottom: 16px; right: 12px; }
+    }
+
+    /* ── Reduced motion ──────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      #omni-bubble::before        { animation: none; }
+      .omni-msg, .omni-suggestion { animation: none; }
+      .omni-dots span             { animation: none; opacity: .7; }
+    }
+  `;
+  document.head.appendChild(style);
+
+  /* ── HTML ───────────────────────────────────────────────────── */
+  document.getElementById('omni-chat-root').innerHTML = `
+    <div id="omni-window">
+      <div id="omni-header">
+        <div class="avatar"><img src="assets/img/Logo_pentagono-removebg-preview.png" alt="Omnex" width="32" height="32" style="display:block;width:32px;height:32px;object-fit:contain;" /></div>
+        <div class="info">
+          <div class="name">${CFG.botName}</div>
+          <div class="status">Asistente de Omnex · en línea</div>
+        </div>
+        <button id="omni-close" aria-label="Cerrar chat">×</button>
+      </div>
+      <div id="omni-messages"></div>
+      <div id="omni-input-area">
+        <textarea id="omni-input" rows="1" placeholder="Escribe tu mensaje..."></textarea>
+        <button id="omni-send" aria-label="Enviar">
+          <svg viewBox="0 0 24 24"><path d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+      </div>
+    </div>
+    <button id="omni-bubble" aria-label="Abrir chat con Omni">
+      <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    </button>
+  `;
+
+  /* ── REFERENCIAS DOM ────────────────────────────────────────── */
+  const win      = document.getElementById('omni-window');
+  const bubble   = document.getElementById('omni-bubble');
+  const closeBtn = document.getElementById('omni-close');
+  const messages = document.getElementById('omni-messages');
+  const input    = document.getElementById('omni-input');
+  const sendBtn  = document.getElementById('omni-send');
+
+  /* ── HELPERS ────────────────────────────────────────────────── */
+  function parseMarkdown(text) {
+    return text
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\n/g, '<br>');
+  }
+
+  function addMessage(text, role, suggestions) {
+    const div = document.createElement('div');
+    div.className = 'omni-msg ' + role;
+    if (role === 'bot typing') {
+      div.innerHTML = '<div class="omni-dots"><span></span><span></span><span></span></div>';
+    } else {
+      div.innerHTML = parseMarkdown(text);
+    }
+    messages.appendChild(div);
+
+    if (suggestions && suggestions.length) {
+      const sg = document.createElement('div');
+      sg.className = 'omni-suggestions';
+      suggestions.forEach(s => {
+        const btn = document.createElement('button');
+        btn.className = 'omni-suggestion';
+        btn.textContent = s;
+        btn.onclick = () => { sg.remove(); sendMessage(s); };
+        sg.appendChild(btn);
+      });
+      messages.appendChild(sg);
+    }
+
+    messages.scrollTop = messages.scrollHeight;
+    return div;
+  }
+
+  function setLoading(on) {
+    sendBtn.disabled = on;
+    input.disabled   = on;
+  }
+
+  /* ── ENVIAR MENSAJE ─────────────────────────────────────────── */
+  async function sendMessage(text) {
+    text = text.trim();
+    if (!text) return;
+
+    input.value = '';
+    input.style.height = 'auto';
+    addMessage(text, 'user');
+
+    const typingEl = addMessage('', 'bot typing');
+    setLoading(true);
+
+    try {
+      const res = await fetch(CFG.webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-chat-token': CFG.token,
+        },
+        body: JSON.stringify({
+          message: text,
+          conversationId,
+          history: history.slice(-CFG.maxHistory),
+        }),
+      });
+
+      const data = await res.json();
+      typingEl.remove();
+
+      const reply = data.reply || 'Algo salió mal. Inténtalo de nuevo.';
+      addMessage(reply, 'bot', data.suggestions);
+
+      history.push({ role: 'user',      content: text  });
+      history.push({ role: 'assistant', content: reply });
+      if (history.length > CFG.maxHistory * 2) history = history.slice(-CFG.maxHistory * 2);
+
+    } catch (err) {
+      typingEl.remove();
+      addMessage('No pude conectar con el asistente. Por favor, intenta de nuevo en unos segundos.', 'bot');
+    }
+
+    setLoading(false);
+    input.focus();
+  }
+
+  /* ── EVENTOS ────────────────────────────────────────────────── */
+  bubble.addEventListener('click', () => {
+    isOpen = !isOpen;
+    win.classList.toggle('open', isOpen);
+    if (isOpen && messages.children.length === 0) {
+      addMessage(
+        '¡Hola! Soy **Omni**, el asistente de Omnex 👋\n\n¿En qué puedo ayudarte hoy?',
+        'bot',
+        ['¿Qué servicios ofrecéis?', '¿Cómo funciona el proceso?', 'Pedir propuesta']
+      );
+      setTimeout(() => input.focus(), 100);
+    }
+  });
+
+  closeBtn.addEventListener('click', () => {
+    isOpen = false;
+    win.classList.remove('open');
+  });
+
+  sendBtn.addEventListener('click', () => sendMessage(input.value));
+
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(input.value); }
+  });
+
+  input.addEventListener('input', () => {
+    input.style.height = 'auto';
+    input.style.height = Math.min(input.scrollHeight, 100) + 'px';
+  });
+
+  /* ── Mostrar bubble tras el loader ──────────────────────────── */
+  (function revealBubble() {
+    function show() {
+      bubble.classList.add('omni-bubble--in');
+      setTimeout(() => {
+        bubble.classList.remove('omni-bubble--in');
+        bubble.classList.add('omni-bubble--ready');
+      }, 650);
+    }
+
+    const loader = document.getElementById('pageLoader');
+    if (!loader) { setTimeout(show, 300); return; }
+
+    const observer = new MutationObserver(() => {
+      if (loader.classList.contains('loaded')) {
+        observer.disconnect();
+        setTimeout(show, 400);
+      }
+    });
+    observer.observe(loader, { attributes: true, attributeFilter: ['class'] });
+  })();
+
+})();
+</script>
+
+<script src="assets/js/main.js?v=7"></script>
+</body>
+</html>
