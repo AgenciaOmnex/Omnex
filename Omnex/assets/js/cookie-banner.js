@@ -1,0 +1,423 @@
+(function () {
+  'use strict';
+
+  const KEY       = 'omnex-consent';
+  const PREFS_KEY = 'omnex-consent-prefs';
+  const FONTS_URL =
+    'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800' +
+    '&family=Sora:wght@400;600;700' +
+    '&family=Inter:wght@400;500;600;700;800;900&display=swap';
+
+  /* ── Google Fonts ─────────────────────────────────────────────────────── */
+  function loadFonts() {
+    if (document.getElementById('omnex-gfonts')) return;
+    const pre1 = document.createElement('link');
+    pre1.rel = 'preconnect';
+    pre1.href = 'https://fonts.googleapis.com';
+    const pre2 = document.createElement('link');
+    pre2.rel = 'preconnect';
+    pre2.href = 'https://fonts.gstatic.com';
+    pre2.crossOrigin = 'anonymous';
+    const link = document.createElement('link');
+    link.id = 'omnex-gfonts';
+    link.rel = 'stylesheet';
+    link.href = FONTS_URL;
+    document.head.append(pre1, pre2, link);
+  }
+
+  /* ── Evento de consentimiento ─────────────────────────────────────────── */
+  function dispatchAccepted() {
+    document.dispatchEvent(new CustomEvent('omnex:consent-accepted'));
+  }
+
+  /* ── Preferencias granulares ──────────────────────────────────────────── */
+  function getPrefs() {
+    try {
+      const raw = localStorage.getItem(PREFS_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch (e) {}
+    return { necessary: true, preferences: false, analytics: false, marketing: false };
+  }
+
+  function getCurrentPrefs() {
+    const status = localStorage.getItem(KEY);
+    if (status === 'accepted') return { necessary: true, preferences: true,  analytics: true,  marketing: true  };
+    if (status === 'declined') return { necessary: true, preferences: false, analytics: false, marketing: false };
+    return getPrefs();
+  }
+
+  function applyPrefs(prefs) {
+    if (prefs.preferences) {
+      loadFonts();
+      dispatchAccepted();
+    }
+    /* analytics y marketing: estructura lista para activar en el futuro */
+  }
+
+  /* ── Cerrar banner ────────────────────────────────────────────────────── */
+  function removeBanner() {
+    const el = document.getElementById('omnex-cookie-banner');
+    if (!el) return;
+    el.style.animation = 'ocb-out .2s ease forwards';
+    setTimeout(function () { if (el.parentNode) el.remove(); }, 220);
+  }
+
+  /* ── Cerrar panel ─────────────────────────────────────────────────────── */
+  function closeSettings() {
+    const el = document.getElementById('omnex-cookie-settings');
+    if (!el) return;
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(-50%) translateY(10px)';
+    setTimeout(function () { if (el.parentNode) el.remove(); }, 220);
+  }
+
+  /* ── Acciones ─────────────────────────────────────────────────────────── */
+  function acceptAll() {
+    localStorage.setItem(KEY, 'accepted');
+    localStorage.setItem(PREFS_KEY, JSON.stringify({ necessary: true, preferences: true, analytics: true, marketing: true }));
+    loadFonts();
+    dispatchAccepted();
+    removeBanner();
+    closeSettings();
+  }
+
+  function declineAll() {
+    localStorage.setItem(KEY, 'declined');
+    localStorage.setItem(PREFS_KEY, JSON.stringify({ necessary: true, preferences: false, analytics: false, marketing: false }));
+    removeBanner();
+    closeSettings();
+  }
+
+  function saveCustom() {
+    var prefEl = document.getElementById('ocb-pref-preferences');
+    var anaEl  = document.getElementById('ocb-pref-analytics');
+    var mktEl  = document.getElementById('ocb-pref-marketing');
+    var prefs = {
+      necessary:   true,
+      preferences: prefEl ? prefEl.checked : false,
+      analytics:   anaEl  ? anaEl.checked  : false,
+      marketing:   mktEl  ? mktEl.checked  : false
+    };
+    localStorage.setItem(KEY, 'custom');
+    localStorage.setItem(PREFS_KEY, JSON.stringify(prefs));
+    applyPrefs(prefs);
+    removeBanner();
+    closeSettings();
+  }
+
+  /* ── Helper: fila de toggle ───────────────────────────────────────────── */
+  function makeToggleRow(name, desc, id, checked) {
+    return (
+      '<div class="ocb-cat">' +
+        '<div class="ocb-cat-info">' +
+          '<span class="ocb-cat-name">' + name + '</span>' +
+          '<span class="ocb-cat-desc">' + desc + '</span>' +
+        '</div>' +
+        '<label class="ocb-toggle-label" aria-label="Activar ' + name + '">' +
+          '<input type="checkbox" id="' + id + '"' + (checked ? ' checked' : '') + ' />' +
+          '<span class="ocb-toggle-track"><span class="ocb-toggle-thumb"></span></span>' +
+        '</label>' +
+      '</div>'
+    );
+  }
+
+  /* ── Panel de configuración ───────────────────────────────────────────── */
+  function openSettings() {
+    if (document.getElementById('omnex-cookie-settings')) return;
+    injectStyles();
+    removeBanner();
+
+    var prefs = getCurrentPrefs();
+
+    var panel = document.createElement('div');
+    panel.id = 'omnex-cookie-settings';
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-label', 'Configuración de cookies');
+    panel.setAttribute('aria-modal', 'true');
+    panel.innerHTML =
+      '<div class="ocb-settings-inner">' +
+        '<div class="ocb-settings-header">' +
+          '<span class="ocb-settings-title">Configurar preferencias de cookies</span>' +
+          '<button class="ocb-settings-close" id="ocb-settings-close" aria-label="Cerrar">&times;</button>' +
+        '</div>' +
+        '<div class="ocb-settings-body">' +
+          '<div class="ocb-cat">' +
+            '<div class="ocb-cat-info">' +
+              '<span class="ocb-cat-name">Necesarias</span>' +
+              '<span class="ocb-cat-desc">Imprescindibles para el funcionamiento básico del sitio. No pueden desactivarse.</span>' +
+            '</div>' +
+            '<span class="ocb-toggle--locked" aria-label="Siempre activas">Siempre activas</span>' +
+          '</div>' +
+          makeToggleRow(
+            'Preferencias',
+            'Permiten recordar tus elecciones y cargar recursos que mejoran la experiencia visual y el asistente Omni.',
+            'ocb-pref-preferences', prefs.preferences
+          ) +
+          makeToggleRow(
+            'Analíticas',
+            'Nos permiten medir el uso del sitio para mejorarlo. No activas actualmente en omnex.es.',
+            'ocb-pref-analytics', prefs.analytics
+          ) +
+          makeToggleRow(
+            'Marketing',
+            'Usadas para mostrar publicidad personalizada. No activas actualmente en omnex.es.',
+            'ocb-pref-marketing', prefs.marketing
+          ) +
+        '</div>' +
+        '<div class="ocb-settings-footer">' +
+          '<button class="ocb-btn ocb-decline" id="ocb-settings-necessary">Solo necesarias</button>' +
+          '<button class="ocb-btn ocb-save" id="ocb-settings-save">Guardar configuración</button>' +
+          '<button class="ocb-btn ocb-accept" id="ocb-settings-all">Aceptar todas</button>' +
+        '</div>' +
+      '</div>';
+
+    document.body.appendChild(panel);
+
+    /* Animación de entrada */
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        panel.style.opacity = '1';
+        panel.style.transform = 'translateX(-50%) translateY(0)';
+      });
+    });
+
+    /* Eventos */
+    document.getElementById('ocb-settings-close').addEventListener('click', function () {
+      var hasChoice = !!localStorage.getItem(KEY);
+      closeSettings();
+      /* Si aún no hay elección, restaurar el banner */
+      if (!hasChoice) setTimeout(injectBanner, 240);
+    });
+    document.getElementById('ocb-settings-necessary').addEventListener('click', declineAll);
+    document.getElementById('ocb-settings-save').addEventListener('click', saveCustom);
+    document.getElementById('ocb-settings-all').addEventListener('click', acceptAll);
+
+    document.getElementById('ocb-settings-close').focus();
+  }
+
+  /* ── Estilos (inyección única) ────────────────────────────────────────── */
+  function injectStyles() {
+    if (document.getElementById('omnex-cookie-styles')) return;
+    var style = document.createElement('style');
+    style.id = 'omnex-cookie-styles';
+    style.textContent = [
+      /* Banner */
+      '#omnex-cookie-banner {',
+      '  position:fixed; bottom:24px; left:50%;',
+      '  transform:translateX(-50%);',
+      '  width:min(700px, calc(100vw - 32px));',
+      '  background:#100820;',
+      '  border:1px solid rgba(192,80,192,.3);',
+      '  border-radius:16px; padding:20px 22px;',
+      '  z-index:99999;',
+      '  box-shadow:0 8px 40px rgba(0,0,0,.75), 0 0 0 1px rgba(118,19,141,.1);',
+      '  animation:ocb-in .3s cubic-bezier(.22,1,.36,1);',
+      '}',
+      /* Panel */
+      '#omnex-cookie-settings {',
+      '  position:fixed; bottom:24px; left:50%;',
+      '  transform:translateX(-50%) translateY(10px);',
+      '  width:min(560px, calc(100vw - 32px));',
+      '  max-height:min(540px, calc(100vh - 48px));',
+      '  display:flex; flex-direction:column;',
+      '  background:#100820;',
+      '  border:1px solid rgba(192,80,192,.3);',
+      '  border-radius:16px;',
+      '  z-index:99999;',
+      '  box-shadow:0 8px 40px rgba(0,0,0,.75), 0 0 0 1px rgba(118,19,141,.1);',
+      '  opacity:0;',
+      '  transition:opacity .22s ease, transform .22s ease;',
+      '}',
+      '@keyframes ocb-in {',
+      '  from { opacity:0; transform:translateX(-50%) translateY(10px); }',
+      '  to   { opacity:1; transform:translateX(-50%) translateY(0); }',
+      '}',
+      '@keyframes ocb-out {',
+      '  to { opacity:0; transform:translateX(-50%) translateY(8px); }',
+      '}',
+      '@media (prefers-reduced-motion:reduce) {',
+      '  #omnex-cookie-banner { animation:none; }',
+      '  #omnex-cookie-settings { transition:none; }',
+      '}',
+      /* Banner inner */
+      '.ocb-inner { display:flex; align-items:flex-start; gap:16px; flex-wrap:wrap; }',
+      '.ocb-text {',
+      '  flex:1; min-width:200px;',
+      '  font-family:Inter,system-ui,sans-serif;',
+      '  font-size:.86rem; line-height:1.6; color:#B6A2B6; margin:0;',
+      '}',
+      '.ocb-link { color:#C050C0; text-decoration:underline; }',
+      '.ocb-btns {',
+      '  display:flex; gap:8px; flex-shrink:0; flex-wrap:wrap; align-items:center;',
+      '}',
+      /* Botones */
+      '.ocb-btn {',
+      '  font-family:Inter,system-ui,sans-serif;',
+      '  font-size:.83rem; font-weight:600;',
+      '  padding:9px 16px; border-radius:8px; border:none;',
+      '  cursor:pointer; white-space:nowrap;',
+      '  transition:opacity .15s;',
+      '}',
+      '.ocb-btn:hover { opacity:.8; }',
+      '.ocb-btn:focus-visible { outline:2px solid #C050C0; outline-offset:2px; }',
+      '.ocb-accept  { background:#C050C0; color:#fff; }',
+      '.ocb-decline { background:#1e1030; color:#E0D0E0; border:1px solid rgba(255,255,255,.22); }',
+      '.ocb-configure { background:transparent; color:#9A849A; border:1px solid rgba(255,255,255,.1); }',
+      '.ocb-save { background:#C050C0; color:#fff; }',
+      /* Panel estructura */
+      '.ocb-settings-inner { display:flex; flex-direction:column; overflow:hidden; border-radius:16px; }',
+      '.ocb-settings-header {',
+      '  display:flex; justify-content:space-between; align-items:center;',
+      '  padding:16px 20px 14px;',
+      '  border-bottom:1px solid rgba(255,255,255,.07);',
+      '  flex-shrink:0;',
+      '}',
+      '.ocb-settings-title {',
+      '  font-family:Inter,system-ui,sans-serif;',
+      '  font-size:.9rem; font-weight:700; color:#EEEEFF;',
+      '}',
+      '.ocb-settings-close {',
+      '  background:none; border:none; color:#B6A2B6;',
+      '  font-size:1.4rem; line-height:1; cursor:pointer; padding:2px 6px;',
+      '  transition:color .15s;',
+      '}',
+      '.ocb-settings-close:hover { color:#fff; }',
+      '.ocb-settings-close:focus-visible { outline:2px solid #C050C0; outline-offset:2px; }',
+      '.ocb-settings-body { padding:4px 20px 4px; overflow-y:auto; flex:1; }',
+      /* Categoría */
+      '.ocb-cat {',
+      '  display:flex; align-items:center; justify-content:space-between;',
+      '  padding:14px 0; gap:16px;',
+      '  border-bottom:1px solid rgba(255,255,255,.05);',
+      '}',
+      '.ocb-cat:last-child { border-bottom:none; }',
+      '.ocb-cat-info { flex:1; }',
+      '.ocb-cat-name {',
+      '  display:block;',
+      '  font-family:Inter,system-ui,sans-serif;',
+      '  font-size:.88rem; font-weight:700; color:#EEEEFF; margin-bottom:3px;',
+      '}',
+      '.ocb-cat-desc {',
+      '  display:block;',
+      '  font-family:Inter,system-ui,sans-serif;',
+      '  font-size:.77rem; color:#B6A2B6; line-height:1.45;',
+      '}',
+      /* Toggle switch */
+      '.ocb-toggle-label { cursor:pointer; flex-shrink:0; }',
+      '.ocb-toggle-label input { position:absolute; opacity:0; width:0; height:0; }',
+      '.ocb-toggle-track {',
+      '  display:block; width:40px; height:22px;',
+      '  background:rgba(255,255,255,.1); border-radius:999px;',
+      '  position:relative; transition:background .2s;',
+      '}',
+      '.ocb-toggle-label input:checked + .ocb-toggle-track { background:#C050C0; }',
+      '.ocb-toggle-label input:focus-visible + .ocb-toggle-track {',
+      '  outline:2px solid #C050C0; outline-offset:2px;',
+      '}',
+      '.ocb-toggle-thumb {',
+      '  position:absolute; top:3px; left:3px;',
+      '  width:16px; height:16px;',
+      '  background:#fff; border-radius:50%;',
+      '  transition:transform .2s;',
+      '}',
+      '.ocb-toggle-label input:checked + .ocb-toggle-track .ocb-toggle-thumb {',
+      '  transform:translateX(18px);',
+      '}',
+      /* Badge "Siempre activas" */
+      '.ocb-toggle--locked {',
+      '  font-family:Inter,system-ui,sans-serif;',
+      '  font-size:.7rem; font-weight:700; letter-spacing:.04em;',
+      '  background:rgba(192,80,192,.15); color:#C050C0;',
+      '  padding:4px 10px; border-radius:999px;',
+      '  white-space:nowrap; flex-shrink:0;',
+      '}',
+      /* Footer panel */
+      '.ocb-settings-footer {',
+      '  display:flex; gap:8px; justify-content:flex-end; flex-wrap:wrap;',
+      '  padding:14px 20px 18px;',
+      '  border-top:1px solid rgba(255,255,255,.07);',
+      '  flex-shrink:0;',
+      '}',
+      /* Responsive */
+      '@media (max-width:520px) {',
+      '  .ocb-inner { flex-direction:column; align-items:stretch; }',
+      '  .ocb-btns { flex-direction:column; }',
+      '  .ocb-btns .ocb-btn { text-align:center; }',
+      '  .ocb-settings-footer { flex-direction:column; }',
+      '  .ocb-settings-footer .ocb-btn { text-align:center; }',
+      '}',
+    ].join('\n');
+    document.head.appendChild(style);
+  }
+
+  /* ── Banner principal ─────────────────────────────────────────────────── */
+  function injectBanner() {
+    if (document.getElementById('omnex-cookie-banner')) return;
+    injectStyles();
+
+    var banner = document.createElement('div');
+    banner.id = 'omnex-cookie-banner';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', 'Aviso de cookies');
+    banner.innerHTML =
+      '<div class="ocb-inner">' +
+        '<p class="ocb-text">' +
+          'Usamos cookies técnicas y, con tu consentimiento, cookies de terceros. ' +
+          '<a href="politica-cookies.html" class="ocb-link">Política de cookies</a>.' +
+        '</p>' +
+        '<div class="ocb-btns">' +
+          '<button class="ocb-btn ocb-decline"   id="ocb-decline">Solo necesarias</button>' +
+          '<button class="ocb-btn ocb-configure" id="ocb-configure">Configurar</button>' +
+          '<button class="ocb-btn ocb-accept"    id="ocb-accept">Aceptar todas</button>' +
+        '</div>' +
+      '</div>';
+
+    document.body.appendChild(banner);
+
+    document.getElementById('ocb-accept').addEventListener('click', acceptAll);
+    document.getElementById('ocb-decline').addEventListener('click', declineAll);
+    document.getElementById('ocb-configure').addEventListener('click', openSettings);
+
+    document.getElementById('ocb-accept').focus();
+  }
+
+  /* ── Punto de entrada ─────────────────────────────────────────────────── */
+  injectStyles();
+
+  /* Exponemos la función para el enlace "Configurar cookies" del footer */
+  window.omnexOpenCookieSettings = openSettings;
+
+  var status = localStorage.getItem(KEY);
+
+  if (status === 'accepted') {
+    loadFonts();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () { setTimeout(dispatchAccepted, 0); });
+    } else {
+      setTimeout(dispatchAccepted, 0);
+    }
+    return;
+  }
+
+  if (status === 'custom') {
+    var prefs = getPrefs();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () { setTimeout(function () { applyPrefs(prefs); }, 0); });
+    } else {
+      setTimeout(function () { applyPrefs(prefs); }, 0);
+    }
+    return;
+  }
+
+  if (status === 'declined') {
+    return;
+  }
+
+  /* Sin decisión → mostrar banner */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', injectBanner);
+  } else {
+    injectBanner();
+  }
+
+})();
