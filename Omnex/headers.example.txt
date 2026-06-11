@@ -1,0 +1,132 @@
+# ============================================================
+# Cabeceras de seguridad HTTP recomendadas — Web Omnex
+# ============================================================
+#
+# IMPORTANTE: Probar la CSP en staging/desarrollo antes de
+# activarla en producción. Una CSP incorrecta puede romper
+# el chatbot, el formulario, los estilos o las fuentes.
+#
+# Estas cabeceras pueden configurarse en:
+#   - Hostinger: panel de hosting > .htaccess (Apache)
+#   - Cloudflare: Rules > Transform Rules > Response Headers
+#   - Netlify / Vercel: fichero _headers o netlify.toml
+#
+# ============================================================
+
+
+# ------------------------------------------------------------
+# OPCIÓN A — Apache (.htaccess)
+# Copiar dentro del bloque <IfModule mod_headers.c> o directamente
+# ------------------------------------------------------------
+
+<IfModule mod_headers.c>
+
+  # HSTS: fuerza HTTPS durante 6 meses (no incluir subdomains hasta confirmar que todos usan HTTPS)
+  Header always set Strict-Transport-Security "max-age=15768000; includeSubDomains"
+
+  # Evita MIME sniffing
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Controla el referrer enviado en peticiones salientes
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Deshabilita APIs de navegador no utilizadas en esta web
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), fullscreen=(self)"
+
+  # Evita que la web se cargue dentro de un iframe en dominios externos
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # Content Security Policy
+  # NOTAS:
+  #   - connect-src incluye el webhook de n8n y el Apps Script para fetch()
+  #   - font-src incluye Google Fonts (archivos de fuente)
+  #   - style-src incluye Google Fonts CSS
+  #   - frame-ancestors reemplaza a X-Frame-Options en navegadores modernos
+  #   - script-src usa 'self'; revisar si se añaden scripts inline (requerirían 'unsafe-inline' o nonces)
+  #   - img-src incluye data: para posibles SVG/íconos inline y wa.me para previsualización
+  Header always set Content-Security-Policy "\
+    default-src 'none'; \
+    script-src 'self'; \
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; \
+    font-src 'self' https://fonts.gstatic.com; \
+    img-src 'self' data: https://wa.me; \
+    connect-src 'self' \
+      https://agencia-n8n.oyvucf.easypanel.host \
+      https://script.google.com; \
+    frame-src 'none'; \
+    frame-ancestors 'self'; \
+    base-uri 'self'; \
+    form-action 'self' https://script.google.com; \
+    upgrade-insecure-requests;"
+
+</IfModule>
+
+
+# ------------------------------------------------------------
+# OPCIÓN B — Cloudflare (formato de regla de cabeceras)
+# Crear una Transform Rule del tipo "Modify Response Header"
+# ------------------------------------------------------------
+
+Strict-Transport-Security: max-age=15768000; includeSubDomains
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), fullscreen=(self)
+X-Frame-Options: SAMEORIGIN
+Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://wa.me; connect-src 'self' https://agencia-n8n.oyvucf.easypanel.host https://script.google.com; frame-src 'none'; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://script.google.com; upgrade-insecure-requests;
+
+
+# ------------------------------------------------------------
+# OPCIÓN C — Netlify (_headers)
+# Crear un fichero `_headers` en la raíz del proyecto con:
+# ------------------------------------------------------------
+
+/*
+  Strict-Transport-Security: max-age=15768000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), fullscreen=(self)
+  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://wa.me; connect-src 'self' https://agencia-n8n.oyvucf.easypanel.host https://script.google.com; frame-src 'none'; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://script.google.com; upgrade-insecure-requests;
+
+
+# ============================================================
+# NOTAS DE AJUSTE DE LA CSP
+# ============================================================
+#
+# 1. SCRIPTS INLINE
+#    Los bloques <script type="application/ld+json"> (JSON-LD) NO son JavaScript y
+#    no los bloquea la CSP. Los atributos onclick="..." SÍ son JavaScript inline y
+#    requieren 'unsafe-inline' o que se eliminen. En esta web los onclick del footer
+#    se han eliminado y reemplazado por event listeners en main.js, por lo que
+#    script-src 'self' es suficiente sin 'unsafe-inline'.
+#
+# 2. ESTILOS INLINE
+#    Esta web usa 'unsafe-inline' en style-src porque omni-chat.js y cookie-banner.js
+#    inyectan elementos <style> dinámicamente en el DOM. Sin 'unsafe-inline', el chatbot
+#    y el banner de cookies pierden todos sus estilos. Además hay atributos style="..."
+#    en el HTML. Si en el futuro se elimina la inyección dinámica de estilos, se puede
+#    quitar 'unsafe-inline' y usar nonces o hashes.
+#
+# 3. GOOGLE FONTS
+#    fonts.googleapis.com sirve CSS; fonts.gstatic.com sirve los archivos de fuente.
+#    Ambos dominios son necesarios si se cargan fuentes desde Google.
+#
+# 4. IMÁGENES EXTERNAS
+#    Si en el futuro se usan imágenes de CDNs externos (Cloudinary, etc.),
+#    añadir el dominio correspondiente a img-src.
+#
+# 5. WHATSAPP (wa.me)
+#    Los enlaces a wa.me son simples <a href>, no requieren ninguna directiva CSP.
+#    Solo se necesitaría en img-src si se cargara una imagen desde ese dominio.
+#
+# 6. HSTS — PRECAUCIÓN
+#    Una vez activo HSTS con includeSubDomains, TODOS los subdominios de omnex.es
+#    deben funcionar en HTTPS. Si hay algún subdominio en HTTP, puede quedar
+#    inaccesible. Activar primero sin includeSubDomains y añadirlo después de confirmar.
+#
+# 7. HERRAMIENTA DE VERIFICACIÓN
+#    Tras activar las cabeceras, verificar en:
+#    https://securityheaders.com
+#    https://csp-evaluator.withgoogle.com
+#
+# ============================================================
